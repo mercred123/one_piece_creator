@@ -147,8 +147,8 @@ const hakiLevels = [
 ];
 
 const genre = [
-  { level: "Homme", probability: 80 },
-  { level: "Femme", probability: 20 },
+  { level: "Homme", probability: 90 },
+  { level: "Femme", probability: 10 },
 ];
 
 const createbutton = document.querySelector(".create");
