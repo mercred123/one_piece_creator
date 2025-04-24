@@ -224,7 +224,7 @@ function RandomStats() {
 }
 
 function ages() {
-  let age = randomInt(16, 150);
+  let age = randomInt(14, 90);
   return age;
 }
 
