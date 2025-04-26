@@ -48,6 +48,12 @@ export function randomOuiNonWithProbability(probOui, probNon) {
   const random = Math.random() * total;
   return random < probOui ? "oui" : "non";
 }
+
+export function randomWithProbability(here, here2, prob1, prob2) {
+    const total = prob1 + prob2
+    const random = Math.random() * total;
+    return random < prob1 ? here : here2;
+}
 export function randomHakiLevel() {
   const totalProbability = hakiLevels.reduce(
     (acc, haki) => acc + haki.probability,

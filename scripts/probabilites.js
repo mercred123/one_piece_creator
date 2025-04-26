@@ -229,7 +229,7 @@ export const character = {
         {label: "bras"},
         {label: "coup de point"},
         {label: "corps"},
-    ]
+    ],
 }
 
 export const hakiLevels = [
