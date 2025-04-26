@@ -232,6 +232,27 @@ export const character = {
     ],
 }
 
+export const ship = {
+    marine: [
+        { label: "Navire de base (petit bâtiment de patrouille)"},
+        { label: "Navire de Vice-Amiral (très grands galions renforcés)"},
+        { label: "Navire de l’Amiral en Chef"},
+        { label: "Navire d'escorte (rapide, armé, utilisé pour protéger un trésor ou prisonniers)"},
+        { label: "Navire de Buster Call (immenses vaisseaux de destruction)"},
+    ],
+    pirate: [
+        { label: "Brigantin"},
+        { label: "Goélette"},
+        { label: "Frégate"},
+        { label: "Galion"},
+        { label: "Caravelle"},
+        { label: "Navire-bateau poisson"},
+        { label: "Navire sous-marin"},
+        { label: "Navire céleste"},
+        { label: "Navire-serpent"},
+    ]
+}
+
 export const hakiLevels = [
     { level: "Haki des Rois", probability: 1 },
     { level: "Haki de l'Armement", probability: 20 },

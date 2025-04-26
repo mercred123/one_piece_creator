@@ -1,5 +1,5 @@
 import { origins, devilFruits, character, statsLevels} from './probabilites.js';
-import { randomInt, formaterPrime, randomWithProbability, tailles, ages, randomHundreds, randomHeightMeters, randomOuiNon, randomOuiNonWithProbability, randomHakiLevel, randomGenre, generateStarsHTML, primes } from './utils.js';
+import { randomInt, Revolution, formaterPrime, Ship, Emperor, Camp, randomWithProbability, tailles, ages, randomHundreds, randomHeightMeters, randomOuiNon, randomOuiNonWithProbability, randomHakiLevel, randomGenre, generateStarsHTML, primes } from './utils.js';
 import { name } from "./name.js";
 
 const createbutton = document.querySelector(".create");
@@ -29,8 +29,9 @@ function RandomStats() {
   const RDNGenre = randomGenre();
   const RDNCorsaire = randomOuiNonWithProbability(2, 98);
   const RDNEmperor = Emperor(RDNCorsaire);
+  const RDNRevoltuion = Revolution(RDNCorsaire, RDNEmperor)
   const RDNArmes =  character.armes[Math.floor(Math.random() * character.armes.length)].label;
-  const RDNCamp = Camp(RDNCorsaire, RDNEmperor);
+  const RDNCamp = Camp(RDNCorsaire, RDNEmperor, RDNRevoltuion);
   const RDNShip = Ship(RDNCamp, RDNCorsaire);
   
   const container = document.getElementsByClassName("stats")[0];
@@ -58,8 +59,6 @@ function RandomStats() {
     { label: `Perception : ${generateStarsHTML(RDNPerception.value)}`, icon: `<i class="fa-solid fa-glasses"></i>` },
     { label: `Résistance : ${generateStarsHTML(RDNRésistance.value)}`, icon: `<i class="fa-solid fa-shield"></i>` },
     { label: `Genre : ${RDNGenre}`, icon: `<i class="fa-solid fa-person"></i>` },
-    { label: `Grand Corsaire : ${RDNCorsaire}`, icon: "" },
-    { label: `Empereur : ${RDNEmperor}`, icon: ""},
     { label: `Camp : ${RDNCamp}`, icon: ""},
     { label: `Navire : ${RDNShip}`, icon: ""},
   ];  
@@ -71,55 +70,4 @@ function RandomStats() {
     p.innerHTML = `${stats.icon} ${stats.label}`;
     container.appendChild(p);
   });
-}
-
-function Emperor(RDNCorsaire) {
-  if (RDNCorsaire === 'oui') {
-    return 'non'
-  } else {
-    const isEmperor = randomOuiNonWithProbability(2, 98)
-    return isEmperor
-  }
-}
-
-function Camp(RDNCorsaire, RDNEmperor) {
-  if (RDNCorsaire === 'oui') {
-    return 'marine'
-  } else if(RDNEmperor === 'oui') {
-    return 'pirate'
-  } else {
-    return randomWithProbability('pirate', 'marine', 15, 75)
-  }
-}
-
-function Ship(RDNCamp, RDNCorsaire) {
-  const marineShip = [
-    { label: "Navire de base (petit bâtiment de patrouille)"},
-    { label: "Navire de Vice-Amiral (très grands galions renforcés)"},
-    { label: "Navire de l’Amiral en Chef"},
-    { label: "Navire d'escorte (rapide, armé, utilisé pour protéger un trésor ou prisonniers)"},
-    { label: "Navire de Buster Call (immenses vaisseaux de destruction)"},
-  ]
-
-  const pirateShip = [
-    { label: "Brigantin"},
-    { label: "Goélette"},
-    { label: "Frégate"},
-    { label: "Galion"},
-    { label: "Caravelle"},
-    { label: "Navire-bateau poisson"},
-    { label: "Navire sous-marin"},
-    { label: "Navire céleste"},
-    { label: "Navire-serpent"},
-  ]
-
-  if (RDNCamp === 'marine' && RDNCorsaire === 'oui') {
-    return pirateShip[Math.floor(Math.random() * pirateShip.length)].label
-  } else if (RDNCamp === 'marine' && RDNCorsaire === 'non') {
-    return marineShip[Math.floor(Math.random() * marineShip.length)].label
-  } else if (RDNCamp === 'pirate') {
-    return pirateShip[Math.floor(Math.random() * pirateShip.length)].label
-  } else {
-    return "Navire inconnu";
-  }
 }

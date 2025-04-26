@@ -1,4 +1,4 @@
-import { hakiLevels, genre } from "./probabilites.js";
+import { hakiLevels, ship, genre } from "./probabilites.js";
 
 export function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -50,9 +50,12 @@ export function randomOuiNonWithProbability(probOui, probNon) {
 }
 
 export function randomWithProbability(here, here2, prob1, prob2) {
-    const total = prob1 + prob2
-    const random = Math.random() * total;
-    return random < prob1 ? here : here2;
+  const total = prob1 + prob2;
+  if (total !== 100) {
+    console.warn("Attention : la somme des probabilités n'est pas 100%");
+  }
+  const random = Math.random() * total;
+  return random < prob1 ? here : here2;
 }
 export function randomHakiLevel() {
   const totalProbability = hakiLevels.reduce(
@@ -106,5 +109,46 @@ export function primes() {
     return randomHundreds(300_000_001, 1_500_000_000);
   } else {
     return randomHundreds(1_500_000_001, 5_000_000_000);
+  }
+}
+
+export function Emperor(isCorsaire) {
+  return isCorsaire === "oui" ? "non" : randomOuiNonWithProbability(2, 98);
+}
+
+export function Revolution(isCorsaire, isEmperor) {
+  return isCorsaire === "non" && isEmperor === "non"
+    ? randomOuiNonWithProbability(4, 96)
+    : "non";
+}
+
+export function Camp(isCorsaire, isEmperor, isRevolutionnaire) {
+  if (isCorsaire === "oui") {
+    return "grand corsaire (marine)";
+  }
+  if (isEmperor === "oui") {
+    return "empereur";
+  }
+  if (isRevolutionnaire === "oui") {
+    return "membre de l'armée révolutionnaire";
+  }
+  return randomWithProbability("pirate", "marine", 85, 15);
+}
+
+export function Ship(camp) {
+  const pirateCamps = [
+    "pirate",
+    "membre de l'armée révolutionnaire",
+    "grand corsaire (marine)",
+    "empereur",
+    "chasseur de prime",
+  ];
+
+  if (camp === "marine") {
+    return ship.marine[Math.floor(Math.random() * ship.marine.length)].label;
+  } else if (pirateCamps.includes(camp)) {
+    return ship.pirate[Math.floor(Math.random() * ship.pirate.length)].label;
+  } else {
+    console.log("error");
   }
 }
