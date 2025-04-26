@@ -19,19 +19,8 @@ const syllabesPrenoms = [
   "Mina",
   "Liam",
   "Léa",
-  "Milo",
   "Léon",
   "Lina",
-  "Léo",
-  "Léna",
-  "Léon",
-  "Léna",
-  "Léo",
-  "Léna",
-  "Léon",
-  "Léna",
-  "Léo",
-  "Léna",
 ];
 
 const syllabesNoms = [
