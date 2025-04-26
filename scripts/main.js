@@ -1,6 +1,7 @@
 import { origins, devilFruits, character, statsLevels} from './probabilites.js';
-import { randomInt, Revolution, formaterPrime, Ship, Emperor, Camp, randomWithProbability, tailles, ages, randomHundreds, randomHeightMeters, randomOuiNon, randomOuiNonWithProbability, randomHakiLevel, randomGenre, generateStarsHTML, primes } from './utils.js';
+import { Revolution, formaterPrime, Ship, Emperor, Camp, tailles, ages, randomOuiNonWithProbability, randomHakiLevel, randomGenre, generateStarsHTML, primes } from './utils.js';
 import { name } from "./name.js";
+import { CorsaireProb, CorsaireProbContre } from './stats.js';
 
 const createbutton = document.querySelector(".create");
 
@@ -27,7 +28,7 @@ function RandomStats() {
   const RDNRésistance = statsLevels.résistanceLevels[Math.floor(Math.random() * statsLevels.résistanceLevels.length)];
   const RDNHaki = randomHakiLevel();
   const RDNGenre = randomGenre();
-  const RDNCorsaire = randomOuiNonWithProbability(2, 98);
+  const RDNCorsaire = randomOuiNonWithProbability(CorsaireProb, CorsaireProbContre);
   const RDNEmperor = Emperor(RDNCorsaire);
   const RDNRevoltuion = Revolution(RDNCorsaire, RDNEmperor)
   const RDNArmes =  character.armes[Math.floor(Math.random() * character.armes.length)].label;

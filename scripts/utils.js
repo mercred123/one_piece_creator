@@ -1,4 +1,5 @@
 import { hakiLevels, ship, genre } from "./probabilites.js";
+import {EmperorProb, EmperorProbContre, RevolutionProb, RevolutionProbContre, PirateProb, MarinePorb, AgeMinProb, AgeMaxProb} from "./stats.js";
 
 export function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -25,7 +26,7 @@ export function tailles() {
 }
 
 export function ages() {
-  let age = randomInt(14, 90);
+  let age = randomInt(AgeMinProb, AgeMaxProb);
   return age;
 }
 
@@ -113,12 +114,12 @@ export function primes() {
 }
 
 export function Emperor(isCorsaire) {
-  return isCorsaire === "oui" ? "non" : randomOuiNonWithProbability(2, 98);
+  return isCorsaire === "oui" ? "non" : randomOuiNonWithProbability(EmperorProb, EmperorProbContre);
 }
 
 export function Revolution(isCorsaire, isEmperor) {
   return isCorsaire === "non" && isEmperor === "non"
-    ? randomOuiNonWithProbability(4, 96)
+    ? randomOuiNonWithProbability(RevolutionProb, RevolutionProbContre)
     : "non";
 }
 
@@ -132,8 +133,42 @@ export function Camp(isCorsaire, isEmperor, isRevolutionnaire) {
   if (isRevolutionnaire === "oui") {
     return "membre de l'armée révolutionnaire";
   }
-  return randomWithProbability("pirate", "marine", 85, 15);
+  return randomWithProbability("pirate", "marine", PirateProb, MarinePorb);
 }
+/*
+let countCorsaire = 0;
+let countEmpereur = 0;
+let countRevolutionnaire = 0;
+let countPirate = 0;
+let countMarine = 0;
+
+export function Camp(isCorsaire, isEmperor, isRevolutionnaire) {
+  let result;
+  
+  if (isCorsaire === "oui") {
+    result = "grand corsaire (marine)";
+    countCorsaire++;
+  } else if (isEmperor === "oui") {
+    result = "empereur";
+    countEmpereur++;
+  } else if (isRevolutionnaire === "oui") {
+    result = "membre de l'armée révolutionnaire";
+    countRevolutionnaire++;
+  } else {
+    result = randomWithProbability("pirate", "marine", 85, 15);
+    if (result === "pirate") {
+      countPirate++;
+    } else {
+      countMarine++;
+    }
+  }
+
+  console.log(
+    `Corsaire: ${countCorsaire}, Empereur: ${countEmpereur}, Révolutionnaire: ${countRevolutionnaire}, Pirate: ${countPirate}, Marine: ${countMarine}`
+  );
+
+  return result;
+}*/
 
 export function Ship(camp) {
   const pirateCamps = [
