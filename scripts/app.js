@@ -42,103 +42,113 @@ const devilFruits = [
   "Fruit de l’Ombre (Kage Kage no Mi)",
 ];
 const cerveauLevels = [
-  "Génie stratégique",
-  "Très intelligent",
-  "Moyennement malin",
-  "Pas futé",
-  "Vraiment bête",
-  "Complètement à l’ouest",
-  "Pas présente",
+  { text: "Génie absolu", value: 10 },
+  { text: "Génie stratégique", value: 9 },
+  { text: "Très intelligent", value: 8 },
+  { text: "Intelligent", value: 7 },
+  { text: "Moyennement malin", value: 6 },
+  { text: "Pas très malin", value: 5 },
+  { text: "Pas futé", value: 4 },
+  { text: "Vraiment bête", value: 3 },
+  { text: "Complètement à l’ouest", value: 2 },
+  { text: "Esprit absent", value: 1 },
 ];
 const vitesseLevels = [
-  "Téléportation",
-  "Vitesse de la lumière",
-  "Ultra rapide",
-  "Très rapide",
-  "Rapide",
-  "Moyen",
-  "Lent",
-  "Vraiment lent",
-  "À le mérite de savoir marcher",
+  { text: "Omniprésence instantanée", value: 10 },
+  { text: "Téléportation", value: 9 },
+  { text: "Vitesse de la lumière", value: 8 },
+  { text: "Ultra rapide", value: 7 },
+  { text: "Très rapide", value: 6 },
+  { text: "Rapide", value: 5 },
+  { text: "Moyen", value: 4 },
+  { text: "Lent", value: 3 },
+  { text: "Vraiment lent", value: 2 },
+  { text: "Se traîne péniblement", value: 1 },
 ];
 const forceLevels = [
-  "Force divine",
-  "Force surhumaine",
-  "Force titanesque",
-  "Très fort",
-  "Fort",
-  "Moyenne",
-  "Faible",
-  "Très faible",
-  "Incapable de soulever une plume",
+  { text: "Force divine", value: 10 },
+  { text: "Force surhumaine", value: 9 },
+  { text: "Force titanesque", value: 8 },
+  { text: "Force colossale", value: 7 },
+  { text: "Très fort", value: 6 },
+  { text: "Fort", value: 5 },
+  { text: "Moyenne", value: 4 },
+  { text: "Faible", value: 3 },
+  { text: "Très faible", value: 2 },
+  { text: "Incapable de soulever une plume", value: 1 },
 ];
 const agilitéLevels = [
-  "Agilité divine",
-  "Agilité surnaturelle",
-  "Réflexes ultra-rapides",
-  "Très agile",
-  "Agile",
-  "Moyenne",
-  "Un peu gauche",
-  "Lent dans les mouvements",
-  "Un pied gauche",
+  { text: "Agilité divine", value: 10 },
+  { text: "Agilité surnaturelle", value: 9 },
+  { text: "Réflexes ultra-rapides", value: 8 },
+  { text: "Réflexes impressionnants", value: 7 },
+  { text: "Très agile", value: 6 },
+  { text: "Agile", value: 5 },
+  { text: "Moyenne", value: 4 },
+  { text: "Un peu gauche", value: 3 },
+  { text: "Lent dans les mouvements", value: 2 },
+  { text: "Un pied gauche", value: 1 },
 ];
 const enduranceLevels = [
-  "Endurance infinie",
-  "Endurance surhumaine",
-  "Endurance extrême",
-  "Très endurant",
-  "Endurant",
-  "Moyenne",
-  "Peu endurant",
-  "Fatigue rapide",
-  "S'essouffle en montant des escaliers",
+  { text: "Endurance légendaire", value: 10 },
+  { text: "Endurance infinie", value: 9 },
+  { text: "Endurance surhumaine", value: 8 },
+  { text: "Endurance extrême", value: 7 },
+  { text: "Très endurant", value: 6 },
+  { text: "Endurant", value: 5 },
+  { text: "Moyenne", value: 4 },
+  { text: "Peu endurant", value: 3 },
+  { text: "Fatigue rapide", value: 2 },
+  { text: "S'essouffle en montant des escaliers", value: 1 },
 ];
 const charismeLevels = [
-  "Charisme irrésistible",
-  "Charisme magnétique",
-  "Charisme exceptionnel",
-  "Très charismatique",
-  "Charismatique",
-  "Moyen",
-  "Manque de charisme",
-  "Difficile à écouter",
-  "Présence inexistante",
+  { text: "Charisme divin", value: 10 },
+  { text: "Charisme irrésistible", value: 9 },
+  { text: "Charisme magnétique", value: 8 },
+  { text: "Charisme exceptionnel", value: 7 },
+  { text: "Très charismatique", value: 6 },
+  { text: "Charismatique", value: 5 },
+  { text: "Moyen", value: 4 },
+  { text: "Manque de charisme", value: 3 },
+  { text: "Difficile à écouter", value: 2 },
+  { text: "Présence inexistante", value: 1 },
 ];
 const visionLevels = [
-  "Vision divine",
-  "Vision au-delà de l'humaine",
-  "Vision parfaite",
-  "Vision aiguisée",
-  "Vision normale",
-  "Vision moyenne",
-  "Vision floue",
-  "Difficile pour voir de loin",
-  "Nécessite des lunettes",
+  { text: "Vision divine", value: 10 },
+  { text: "Vision surhumaine", value: 9 },
+  { text: "Vision parfaite", value: 8 },
+  { text: "Vision exceptionnelle", value: 7 },
+  { text: "Vision aiguisée", value: 6 },
+  { text: "Vision normale", value: 5 },
+  { text: "Vision moyenne", value: 4 },
+  { text: "Vision floue", value: 3 },
+  { text: "Vision très floue", value: 2 },
+  { text: "Quasi-aveugle sans lunettes", value: 1 },
 ];
 const perceptionLevels = [
-  "Perception omnisciente",
-  "Perception ultra-développée",
-  "Perception affinée",
-  "Très perceptif",
-  "Perceptif",
-  "Moyenne",
-  "Peu perceptif",
-  "Ne remarque pas l'évidence",
-  "Ne détecte même pas les bruits autour de soi",
+  { text: "Perception utlime", value: 10 },
+  { text: "Perception omnisciente", value: 9 },
+  { text: "Perception ultra-développée", value: 8 },
+  { text: "Perception affinée", value: 7 },
+  { text: "Très perceptif", value: 6 },
+  { text: "Perceptif", value: 5 },
+  { text: "Moyenne", value: 4 },
+  { text: "Peu perceptif", value: 3 },
+  { text: "Ne remarque pas l'évidence", value: 2 },
+  { text: "Ne détecte même pas les bruits autour de soi", value: 1 },
 ];
 const résistanceLevels = [
-  "Résistance absolue",
-  "Résistance surhumaine",
-  "Très résistant",
-  "Résistant",
-  "Moyenne",
-  "Faible résistance",
-  "Très faible résistance",
-  "Fragile",
-  "Brisé par une brise légère",
+  { text: "Résistance absolue", value: 10 },
+  { text: "Résistance surhumaine", value: 9 },
+  { text: "Très résistant", value: 8 },
+  { text: "Résistant", value: 7 },
+  { text: "Moyenne", value: 6 },
+  { text: "bonne résistance", value: 5 },
+  { text: "Faible résistance", value: 4 },
+  { text: "Très faible résistance", value: 3 },
+  { text: "Fragile", value: 2 },
+  { text: "Brisé par une brise légère", value: 1 },
 ];
-
 const hakiLevels = [
   { level: "Haki des Rois", probability: 1 },
   { level: "Haki de l'Armement", probability: 20 },
@@ -200,16 +210,16 @@ function RandomStats() {
     `Prime : ${formaterPrime(RDNBountie)} ฿`,
     `Âge : ${RDNAge} ans`,
     `Taille : ${RDNHeight} m`,
-    `Cerveau : ${RDNCerveau}`,
-    `Vitesse : ${RDNVitesse}`,
+    `Cerveau : ${generateStarsHTML(RDNCerveau.value)}`,
+    `Vitesse : ${generateStarsHTML(RDNVitesse.value)}`,
     `Haki : ${RDNHaki}`,
-    `Force : ${RDNForce}`,
-    `Agilité : ${RDNAgilité}`,
-    `Endurance : ${RDNEndurance}`,
-    `Charisme : ${RDNCharisme}`,
-    `Vision : ${RDNVision}`,
-    `Perception : ${RDNPerception}`,
-    `Résistance : ${RDNRésistance}`,
+    `Force : ${generateStarsHTML(RDNForce.value)}`,
+    `Agilité : ${generateStarsHTML(RDNAgilité.value)}`,
+    `Endurance : ${generateStarsHTML(RDNEndurance.value)}`,
+    `Charisme : ${generateStarsHTML(RDNCharisme.value)}`,
+    `Vision : ${generateStarsHTML(RDNVision.value)}`,
+    `Perception : ${generateStarsHTML(RDNPerception.value)}`,
+    `Résistance : ${generateStarsHTML(RDNRésistance.value)}`,
     `Grand Corsaire : ${RDNCorsaire}`,
     `Genre : ${RDNGenre}`,
   ];
@@ -218,7 +228,7 @@ function RandomStats() {
 
   stats.forEach((stats) => {
     const p = document.createElement("p");
-    p.textContent = stats;
+    p.innerHTML = stats;
     container.appendChild(p);
   });
 }
@@ -229,13 +239,24 @@ function ages() {
 }
 
 function primes() {
-  let primes = randomHundreds(10000, 10000000000);
-  return primes;
+  let chance = Math.random();
+  if (chance < 0.7) {
+    return randomHundreds(500_000, 300_000_000); 
+  } else if (chance < 0.95) {
+    return randomHundreds(300_000_001, 1_500_000_000);
+  } else {
+    return randomHundreds(1_500_000_001, 5_000_000_000);
+  }
 }
 
+
 function tailles() {
-  let tailles = randomHeightMeters(1.6, 8);
-  return tailles;
+  let chance = Math.random();
+  if (chance < 0.9) {
+    return randomHeightMeters(1.5, 2.2);
+  } else {
+    return randomHeightMeters(2.3, 5);
+  }
 }
 
 function randomInt(min, max) {
@@ -303,4 +324,16 @@ function randomGenre() {
       return genre[i].level;
     }
   }
+}
+
+function generateStarsHTML(value) {
+  let starsHTML = "";
+  for (let i = 1; i <= 10; i++) {
+    if (i <= value) {
+      starsHTML += `<span style="color: gold;">★</span>`;
+    } else {
+      starsHTML += `<span style="color: gray;">★</span>`;
+    }
+  }
+  return starsHTML;
 }
