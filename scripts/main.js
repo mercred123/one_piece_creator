@@ -36,7 +36,7 @@ function RandomStats() {
   statsLevels.résistanceLevels[Math.floor(Math.random() * statsLevels.résistanceLevels.length)];
   const RDNHaki = randomHakiLevel();
   const RDNGenre = randomGenre();
-  const RDNCorsaire = randomOuiNonWithProbability(50, 50);
+  const RDNCorsaire = randomOuiNonWithProbability(2, 98);
   const RDNEmperor = Emperor(RDNCorsaire);
   
   const container = document.getElementsByClassName("stats")[0];
