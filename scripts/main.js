@@ -35,9 +35,10 @@ function RandomStats() {
   const RDNRésistance =
   statsLevels.résistanceLevels[Math.floor(Math.random() * statsLevels.résistanceLevels.length)];
   const RDNHaki = randomHakiLevel();
-  const RDNCorsaire = randomOuiNonWithProbability(2, 98);
   const RDNGenre = randomGenre();
-
+  const RDNCorsaire = randomOuiNonWithProbability(50, 50);
+  const RDNEmperor = Emperor(RDNCorsaire);
+  
   const container = document.getElementsByClassName("stats")[0];
   if (!container) {
     console.warn("Aucun conteneur avec la classe 'stats' trouvé !");
@@ -45,31 +46,41 @@ function RandomStats() {
   }
 
   const stats = [
-    `Nom : ${name()}`,
-    `Origine : ${RDNOrigin}`,
-    `Fruit du Démon : ${RDNDevilFruit}`,
-    `Prime : ${formaterPrime(RDNBountie)} ฿`,
-    `Âge : ${RDNAge} ans`,
-    `Taille : ${RDNHeight} m`,
-    `Cerveau : ${generateStarsHTML(RDNCerveau.value)}`,
-    `Vitesse : ${generateStarsHTML(RDNVitesse.value)}`,
-    `Haki : ${RDNHaki}`,
-    `Force : ${generateStarsHTML(RDNForce.value)}`,
-    `Agilité : ${generateStarsHTML(RDNAgilité.value)}`,
-    `Endurance : ${generateStarsHTML(RDNEndurance.value)}`,
-    `Charisme : ${generateStarsHTML(RDNCharisme.value)}`,
-    `Vision : ${generateStarsHTML(RDNVision.value)}`,
-    `Perception : ${generateStarsHTML(RDNPerception.value)}`,
-    `Résistance : ${generateStarsHTML(RDNRésistance.value)}`,
-    `Grand Corsaire : ${RDNCorsaire}`,
-    `Genre : ${RDNGenre}`,
-  ];
+    { label: `Nom : ${name()}`, icon: `<i class="fa-solid fa-tag"></i>` },
+    { label: `Origine : ${RDNOrigin}`, icon: `<i class="fa-solid fa-globe"></i>` },
+    { label: `Fruit du Démon : ${RDNDevilFruit}`, icon: `<i class="fa-solid fa-apple-whole"></i>` },
+    { label: `Prime : ${formaterPrime(RDNBountie)} ฿`, icon: `<i class="fa-solid fa-coins"></i>` },
+    { label: `Âge : ${RDNAge} ans`, icon: `<i class="fa-solid fa-calendar"></i>` },
+    { label: `Taille : ${RDNHeight} m`, icon: `<i class="fa-solid fa-ruler-vertical"></i>` },
+    { label: `Cerveau : ${generateStarsHTML(RDNCerveau.value)}`, icon: `<i class="fa-solid fa-brain"></i>` },
+    { label: `Vitesse : ${generateStarsHTML(RDNVitesse.value)}`, icon: `<i class="fa-solid fa-bolt"></i>` },
+    { label: `Haki : ${RDNHaki}`, icon: `<i class="fa-brands fa-superpowers"></i>` },
+    { label: `Force : ${generateStarsHTML(RDNForce.value)}`, icon: `<i class="fa-solid fa-dumbbell"></i>` },
+    { label: `Agilité : ${generateStarsHTML(RDNAgilité.value)}`, icon: `<i class="fa-solid fa-person-walking"></i>` },
+    { label: `Endurance : ${generateStarsHTML(RDNEndurance.value)}`, icon: `<i class="fa-solid fa-battery-full"></i>` },
+    { label: `Charisme : ${generateStarsHTML(RDNCharisme.value)}`, icon: `<i class="fa-solid fa-comment"></i>` },
+    { label: `Vision : ${generateStarsHTML(RDNVision.value)}`, icon: `<i class="fa-solid fa-eye"></i>` },
+    { label: `Perception : ${generateStarsHTML(RDNPerception.value)}`, icon: `<i class="fa-solid fa-glasses"></i>` },
+    { label: `Résistance : ${generateStarsHTML(RDNRésistance.value)}`, icon: `<i class="fa-solid fa-shield"></i>` },
+    { label: `Genre : ${RDNGenre}`, icon: `<i class="fa-solid fa-person"></i>` },
+    { label: `Grand Corsaire : ${RDNCorsaire}`, icon: "" },
+    { label: `Empereur : ${RDNEmperor}`, icon: ""}
+  ];  
 
   container.innerHTML = "";
 
   stats.forEach((stats) => {
     const p = document.createElement("p");
-    p.innerHTML = stats;
+    p.innerHTML = `${stats.icon} ${stats.label}`;
     container.appendChild(p);
   });
+}
+
+function Emperor(RDNCorsaire) {
+  if (RDNCorsaire === 'oui') {
+    return 'non'
+  } else {
+    const isEmperor = randomOuiNonWithProbability(2, 98)
+    return isEmperor
+  }
 }
