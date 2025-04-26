@@ -60,8 +60,8 @@ function RandomStats() {
     { label: `Perception : ${generateStarsHTML(RDNPerception.value)}`, icon: `<i class="fa-solid fa-glasses"></i>` },
     { label: `Résistance : ${generateStarsHTML(RDNRésistance.value)}`, icon: `<i class="fa-solid fa-shield"></i>` },
     { label: `Genre : ${RDNGenre}`, icon: `<i class="fa-solid fa-person"></i>` },
-    { label: `Camp : ${RDNCamp}`, icon: ""},
-    { label: `Navire : ${RDNShip}`, icon: ""},
+    { label: `Camp : ${RDNCamp}`, icon: `<i class="fa-solid fa-users"></i>`},
+    { label: `Navire : ${RDNShip}`, icon: `<i class="fa-solid fa-sailboat"></i>`},
   ];  
 
   container.innerHTML = "";
