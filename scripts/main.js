@@ -1,4 +1,4 @@
-import { origins, devilFruits, statsLevels} from './probabilites.js';
+import { origins, devilFruits, character, statsLevels} from './probabilites.js';
 import { randomInt, formaterPrime, tailles, ages, randomHundreds, randomHeightMeters, randomOuiNon, randomOuiNonWithProbability, randomHakiLevel, randomGenre, generateStarsHTML, primes } from './utils.js';
 import { name } from "./name.js";
 
@@ -13,31 +13,23 @@ if (createbutton) {
 function RandomStats() {
   const RDNBountie = primes();
   const RDNOrigin = origins[Math.floor(Math.random() * origins.length)];
-  const RDNDevilFruit =
-    devilFruits[Math.floor(Math.random() * devilFruits.length)];
+  const RDNDevilFruit = devilFruits[Math.floor(Math.random() * devilFruits.length)];
   const RDNAge = ages();
   const RDNHeight = tailles();
-  const RDNCerveau =
-    statsLevels.cerveauLevels[Math.floor(Math.random() * statsLevels.cerveauLevels.length)];
-  const RDNVitesse =
-  statsLevels.vitesseLevels[Math.floor(Math.random() * statsLevels.vitesseLevels.length)];
+  const RDNCerveau = statsLevels.cerveauLevels[Math.floor(Math.random() * statsLevels.cerveauLevels.length)];
+  const RDNVitesse = statsLevels.vitesseLevels[Math.floor(Math.random() * statsLevels.vitesseLevels.length)];
   const RDNForce = statsLevels.forceLevels[Math.floor(Math.random() * statsLevels.forceLevels.length)];
-  const RDNAgilité =
-  statsLevels.agilitéLevels[Math.floor(Math.random() * statsLevels.agilitéLevels.length)];
-  const RDNEndurance =
-  statsLevels.enduranceLevels[Math.floor(Math.random() * statsLevels.enduranceLevels.length)];
-  const RDNCharisme =
-  statsLevels.charismeLevels[Math.floor(Math.random() * statsLevels.charismeLevels.length)];
-  const RDNVision =
-  statsLevels.visionLevels[Math.floor(Math.random() * statsLevels.visionLevels.length)];
-  const RDNPerception =
-  statsLevels.perceptionLevels[Math.floor(Math.random() * statsLevels.perceptionLevels.length)];
-  const RDNRésistance =
-  statsLevels.résistanceLevels[Math.floor(Math.random() * statsLevels.résistanceLevels.length)];
+  const RDNAgilité = statsLevels.agilitéLevels[Math.floor(Math.random() * statsLevels.agilitéLevels.length)];
+  const RDNEndurance = statsLevels.enduranceLevels[Math.floor(Math.random() * statsLevels.enduranceLevels.length)];
+  const RDNCharisme = statsLevels.charismeLevels[Math.floor(Math.random() * statsLevels.charismeLevels.length)];
+  const RDNVision = statsLevels.visionLevels[Math.floor(Math.random() * statsLevels.visionLevels.length)];
+  const RDNPerception = statsLevels.perceptionLevels[Math.floor(Math.random() * statsLevels.perceptionLevels.length)];
+  const RDNRésistance = statsLevels.résistanceLevels[Math.floor(Math.random() * statsLevels.résistanceLevels.length)];
   const RDNHaki = randomHakiLevel();
   const RDNGenre = randomGenre();
   const RDNCorsaire = randomOuiNonWithProbability(2, 98);
   const RDNEmperor = Emperor(RDNCorsaire);
+  const RDNArmes =  character.armes[Math.floor(Math.random() * character.armes.length)].label;
   
   const container = document.getElementsByClassName("stats")[0];
   if (!container) {
@@ -52,6 +44,7 @@ function RandomStats() {
     { label: `Prime : ${formaterPrime(RDNBountie)} ฿`, icon: `<i class="fa-solid fa-coins"></i>` },
     { label: `Âge : ${RDNAge} ans`, icon: `<i class="fa-solid fa-calendar"></i>` },
     { label: `Taille : ${RDNHeight} m`, icon: `<i class="fa-solid fa-ruler-vertical"></i>` },
+    { label: `Armes : ${RDNArmes}`, icon: `<i class="fa-solid fa-gun"></i>`},
     { label: `Cerveau : ${generateStarsHTML(RDNCerveau.value)}`, icon: `<i class="fa-solid fa-brain"></i>` },
     { label: `Vitesse : ${generateStarsHTML(RDNVitesse.value)}`, icon: `<i class="fa-solid fa-bolt"></i>` },
     { label: `Haki : ${RDNHaki}`, icon: `<i class="fa-brands fa-superpowers"></i>` },
