@@ -1,13 +1,11 @@
 /**
  * ! juste en dessou il y a le pourcentage de chance d'être grand corsaire
  */
-
 export let CorsaireProb = 2
 
 /**
  * ! juste en dessou il y a le pourcentage de chance d'être un empereur
  */
-
 export let EmperorProb = 2
 
 /**

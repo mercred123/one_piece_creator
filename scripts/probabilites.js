@@ -250,6 +250,7 @@ export const ship = {
         { label: "Navire sous-marin"},
         { label: "Navire céleste"},
         { label: "Navire-serpent"},
+        { label: "Radeau"},
     ]
 }
 
